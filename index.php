@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>devinzimmer.com</title>
+    <title>Devin Zimmer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -40,13 +40,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Project Locator</a>
+          <a class="brand" href="/">Devin Zimmer</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Code</a></li>
-              <li><a href="#about">Audio</a></li>
-              <li><a href="#contact">Blog</a></li>
-              <li><a href="#contact">Resum&eacute;</a></li>
+              <li><a href="http://github.com/devZdev" target="_blank">Code</a></li>
+              <li><a href="https://twitter.com/DevinZimmer" target="_blank">Tweets</a></li>
+              <li><a href="/blog/" target="_blank">Blog</a></li>
+              <li><a href="http://www.linkedin.com/in/devinzimmer" target="_blank">Resum&eacute;</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -55,7 +55,7 @@
 
     <div class="container">
 
-      <h1>Devin Zimmer</h1>
+      <h1>Home</h1>
       <p>Coding, composing, and cooking -- casually.</p>
 
     </div> <!-- /container -->
