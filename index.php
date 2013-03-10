@@ -45,7 +45,6 @@
             <ul class="nav">
               <li><a href="http://github.com/devZdev" target="_blank">Code</a></li>
               <li><a href="https://twitter.com/DevinZimmer" target="_blank">Tweets</a></li>
-              <li><a href="/blog/" target="_blank">Blog</a></li>
               <li><a href="http://www.linkedin.com/in/devinzimmer" target="_blank">Resum&eacute;</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -56,7 +55,7 @@
     <div class="container">
 
       <h1>Home</h1>
-      <p>Coding, composing, and cooking -- casually.</p>
+      <p>Scratch site for tech and music experiments.</p>
 
     </div> <!-- /container -->
 
