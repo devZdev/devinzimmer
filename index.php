@@ -46,6 +46,7 @@
               <li><a href="http://github.com/devZdev" target="_blank">Code</a></li>
               <li><a href="https://twitter.com/DevinZimmer" target="_blank">Tweets</a></li>
               <li><a href="http://www.linkedin.com/in/devinzimmer" target="_blank">Resum&eacute;</a></li>
+              <li><a href="http://appdoodlepro.com" target="_blank">AppDoodlePro</a><li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -56,6 +57,7 @@
 
       <h1>Home</h1>
       <p>Scratch site for tech and music experiments.</p>
+      <h2>&copy;arly &copy;lark</h2>
 
     </div> <!-- /container -->
 
