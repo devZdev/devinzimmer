@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -57,7 +56,7 @@
 
       <h1>Home</h1>
       <p>Scratch site for tech and music experiments.</p>
-      <h2>&copy;arly &copy;lark</h2>
+      <!-- <h2>&copy;arly &copy;lark</h2> -->
 
     </div> <!-- /container -->
 
