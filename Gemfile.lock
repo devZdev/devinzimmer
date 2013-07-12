@@ -1,14 +1,21 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    kgio (2.8.0)
     rack (1.5.2)
+    raindrops (0.11.0)
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
     tilt (1.4.1)
+    unicorn (4.6.2)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   sinatra (= 1.1.0)
+  unicorn
