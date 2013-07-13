@@ -4,6 +4,8 @@ Bundler.require(:rack)
 port = (ARGV.first || ENV['PORT'] || 3000).to_i
 env = ENV['RACK_ENV'] || 'development'
 
+#ENV['MONGOHQ_URL'] = "mongodb://heroku:b790650538adc2ffa8384e2fc47fa1ff@dharma.mongohq.com:10088/app16855475"
+
 require 'em-proxy'
 require 'logger'
 require 'heroku-forward'
