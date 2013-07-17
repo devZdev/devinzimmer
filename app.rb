@@ -21,35 +21,81 @@ module DZ
 		end
 
 		get '/' do
-			db = get_db_connection
-			posts_collection = db['posts']
-			posts = posts_collection.find.each.to_a
-	  		erb :layout, :locals => {:posts => posts}
+			erb :home, {:layout => true}
 		end
 
+		get '/posts/add' do
+			erb :posts_add, {:layout => true}
+		end
+
+		get '/posts/edit/:id' do
+			db = get_db_connection
+			posts_collection = db['posts']
+			post = posts_collection.find("_id" => BSON::ObjectId(params[:id])).to_a
+	  		erb :posts_edit, {:layout => true, :locals => {:post => post[0]}}
+		end
+
+		#index
 		get '/posts' do
 			db = get_db_connection
 			posts_collection = db['posts']
 			posts = posts_collection.find.each.to_a
-	  		erb :layout, :locals => {:posts => posts}
+	  		erb :posts_index, {:layout => true, :locals => {:posts => posts}}
 		end
 
-		get '/posts/add_test_post' do
-			post = {"author" => "Sinatra", "title" => "Test Post Title", "body" => "Test Post Body" }
+		#create
+		post '/posts' do 
+			post = {"author" => params[:author], "title" => params[:title], "body" => params[:body]}
 			db = get_db_connection
 			posts_collection = db['posts']
 			posts_collection.insert(post)
-			posts = posts_collection.find.each.to_a
-			erb :layout, :locals => {:posts => posts}
+			redirect "/posts"
 		end
 
-		get '/posts/delete_test_posts' do
-			param = {"author" => "Sinatra"}
+		#read
+		get '/posts/:id' do
 			db = get_db_connection
 			posts_collection = db['posts']
-			posts_collection.remove(param)
-			posts = posts_collection.find.each.to_a
-			erb :layout, :locals => {:posts => posts}
-		end 
+			post = posts_collection.find("_id" => BSON::ObjectId(params[:id])).to_a
+	  		erb :posts_view, {:layout => true, :locals => {:post => post[0]}}
+		end
+
+		#update
+		put '/posts/:id' do 
+			update = {"author" => params[:author], "title" => params[:title], "body" => params[:body]}
+			db = get_db_connection
+			posts_collection = db['posts']
+			posts_collection.update({"_id" => BSON::ObjectId(params[:id])}, update)
+			redirect "/posts"
+		end
+
+		#html update support
+		post '/posts/edit/:id' do
+			update = {"author" => params[:author], "title" => params[:title], "body" => params[:body]}
+			db = get_db_connection
+			posts_collection = db['posts']
+			posts_collection.update({"_id" => BSON::ObjectId(params[:id])}, update)
+			redirect "/posts"
+		end
+
+		#delete
+		delete '/posts/:id' do
+			db = get_db_connection
+			posts_collection = db['posts']
+			posts_collection.remove("_id" => BSON::ObjectId(params[:id]))
+			redirect "/posts" 
+		end
+
+		#html delete support
+		post '/posts/delete/:id' do
+			db = get_db_connection
+			posts_collection = db['posts']
+			posts_collection.remove("_id" => BSON::ObjectId(params[:id]))
+			redirect "/posts" 
+		end
+
+		get '/*' do
+			erb '404 -- This page does not exist!', :layout => true
+		end
 	end
 end

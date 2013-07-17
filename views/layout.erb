@@ -47,6 +47,7 @@
               <li><a href="https://twitter.com/DevinZimmer" target="_blank">Tweets</a></li>
               <li><a href="http://www.linkedin.com/in/devinzimmer" target="_blank">Resum&eacute;</a></li>
               <li><a href="http://appdoodlepro.com" target="_blank">AppDoodlePro</a><li>
+              <li><a href="/posts">Blog</a><li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -54,18 +55,7 @@
     </div>
 
     <div class="container">
-
-      <h1>Home</h1>
-      <p>Scratch site for tech and music experiments.</p>
-      <!-- <h2>&copy;arly &copy;lark</h2> -->
-      <h3>Blog Test</h3>
-      
-      <% posts.each do |post| %>
-        <h4> Author: <%= post["author"] %></h4>
-        <h4> Title: <%= post["title"] %></h4>
-        <p><%= post["body"]%></p>
-      <% end %>
-    
+      <%= yield %>
     </div> <!-- /container -->
 
     <!-- Le javascript

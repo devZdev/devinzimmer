@@ -1,0 +1,19 @@
+<form action="/posts/edit/<%= post["_id"] %>" method="post">
+  <fieldset>
+    <legend>Edit Post</legend>
+    
+    <label>Author</label>
+    <input type="text" name="author" value="<%= post["author"] %>" />
+    <span class="help-block">Enter the author as it will appear on the post.</span>
+    
+    <label>Title</label>
+    <input type="text" name="title" value="<%= post["title"] %>" />
+    <span class="help-block">Enter a title for the blog post.</span>
+    
+    <label>Content</label>
+    <textarea name="body"><%= post["body"]%></textarea>
+    <span class="help-block">Paste markup here.</span>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
