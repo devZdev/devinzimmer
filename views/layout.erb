@@ -57,8 +57,15 @@
 
       <h1>Home</h1>
       <p>Scratch site for tech and music experiments.</p>
-      <h2>&copy;arly &copy;lark</h2>
-
+      <!-- <h2>&copy;arly &copy;lark</h2> -->
+      <h3>Blog Test</h3>
+      
+      <% posts.each do |post| %>
+        <h4> Author: <%= post["author"] %></h4>
+        <h4> Title: <%= post["title"] %></h4>
+        <p><%= post["body"]%></p>
+      <% end %>
+    
     </div> <!-- /container -->
 
     <!-- Le javascript
