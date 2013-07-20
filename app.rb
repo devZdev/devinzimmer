@@ -20,6 +20,11 @@ module DZ
   			end
 		end
 
+		def posts_collection
+			db = get_db_connection
+			db['posts']
+		end
+
 		get '/' do
 			erb :home, {:layout => true}
 		end
@@ -29,33 +34,24 @@ module DZ
 		end
 
 		get '/posts/edit/:id' do
-			db = get_db_connection
-			posts_collection = db['posts']
 			post = posts_collection.find("_id" => BSON::ObjectId(params[:id])).to_a
 	  		erb :posts_edit, {:layout => true, :locals => {:post => post[0]}}
 		end
 
 		#index
 		get '/posts' do
-			db = get_db_connection
-			posts_collection = db['posts']
-			posts = posts_collection.find.each.to_a
-	  		erb :posts_index, {:layout => true, :locals => {:posts => posts}}
+	  		erb :posts_index, {:layout => true, :locals => {:posts => posts_collection.find.each.to_a}}
 		end
 
 		#create
 		post '/posts' do 
 			post = {"author" => params[:author], "title" => params[:title], "body" => params[:body]}
-			db = get_db_connection
-			posts_collection = db['posts']
 			posts_collection.insert(post)
 			redirect "/posts"
 		end
 
 		#read
 		get '/posts/:id' do
-			db = get_db_connection
-			posts_collection = db['posts']
 			post = posts_collection.find("_id" => BSON::ObjectId(params[:id])).to_a
 	  		erb :posts_view, {:layout => true, :locals => {:post => post[0]}}
 		end
@@ -63,8 +59,6 @@ module DZ
 		#update
 		put '/posts/:id' do 
 			update = {"author" => params[:author], "title" => params[:title], "body" => params[:body]}
-			db = get_db_connection
-			posts_collection = db['posts']
 			posts_collection.update({"_id" => BSON::ObjectId(params[:id])}, update)
 			redirect "/posts"
 		end
@@ -72,24 +66,18 @@ module DZ
 		#html update support
 		post '/posts/edit/:id' do
 			update = {"author" => params[:author], "title" => params[:title], "body" => params[:body]}
-			db = get_db_connection
-			posts_collection = db['posts']
 			posts_collection.update({"_id" => BSON::ObjectId(params[:id])}, update)
 			redirect "/posts"
 		end
 
 		#delete
 		delete '/posts/:id' do
-			db = get_db_connection
-			posts_collection = db['posts']
 			posts_collection.remove("_id" => BSON::ObjectId(params[:id]))
 			redirect "/posts" 
 		end
 
 		#html delete support
 		post '/posts/delete/:id' do
-			db = get_db_connection
-			posts_collection = db['posts']
 			posts_collection.remove("_id" => BSON::ObjectId(params[:id]))
 			redirect "/posts" 
 		end
