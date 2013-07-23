@@ -3,17 +3,23 @@
     <legend>Add Post</legend>
     
     <label>Author</label>
-    <input type="text" name="author" />
-    <span class="help-block">Enter the author as it will appear on the post.</span>
+    <input type="text" name="author" placeholder="ie.. John Doe" autofocus="autofocus"/>
     
     <label>Title</label>
-    <input type="text" name="title" />
-    <span class="help-block">Enter a title for the blog post.</span>
+    <input type="text" name="title" placeholder="ie.. How To Do Stuff" />
     
     <label>Content</label>
-    <textarea name="body"></textarea>
-    <span class="help-block">Paste markup here.</span>
+    <textarea name="body" placeholder="Paste markup here"></textarea>
+   
 
+    <label>Email</label>
+    <input type="email" name="email" placeholder="lahd@mercy.com" />
+
+    <label>Date</label>
+    <input type="date" name="date" />
+
+    <span class="help-block">You can edit this later</span>
+   
     <button type="submit" class="btn btn-primary">Submit</button>
   </fieldset>
 </form>
