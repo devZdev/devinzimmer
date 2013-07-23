@@ -2,14 +2,14 @@ require 'sinatra'
 require 'mongo'
 require 'uri'
 
-require_relative 'lib/database'
-require_relative 'lib/posts_routes'
+require_relative 'clients/database_client'
+require_relative 'routes/posts_routes'
 
 class App < Sinatra::Application
 	
-	include Database
+	include DatabaseClient
 
-	register PostRoutes
+	register PostsRoutes
 	
 	get '/' do
 		erb :home, {:layout => true}

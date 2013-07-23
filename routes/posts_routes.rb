@@ -1,4 +1,4 @@
-module PostRoutes
+module PostsRoutes
 	#add form
 	get '/posts/add' do
 		erb :posts_add, {:layout => true}

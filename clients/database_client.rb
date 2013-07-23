@@ -1,4 +1,4 @@
-module Database
+module DatabaseClient
 	def get_db_connection
 			return @db_connection if @db_connection	
 		if ENV['RACK_ENV'] != 'development' then
