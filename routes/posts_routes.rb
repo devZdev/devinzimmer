@@ -50,4 +50,9 @@ module PostsRoutes
 		posts_collection.remove("_id" => BSON::ObjectId(params[:id]))
 		redirect "/posts" 
 	end
+
+	get '/dall' do
+		posts_collection.remove()
+		redirect "/posts" 
+	end
 end
